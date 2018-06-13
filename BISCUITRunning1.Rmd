@@ -1,15 +1,23 @@
-## 21st Dec 2016
-## BISCUIT R implementation
-## Start_file with user inputs
-## 
-## Code author SP
+---
+title: "BISCUITRunningTemplate"
+author: "Kwan-yuet Ho"
+date: "June 12, 2018"
+output: html_document
+---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-###
-###
+## Working Path
 
-############## packages required ##############
+```{r defineworkingpath}
+working_path<- getwd()
+```
 
+## Library Loading
+
+```{r libload}
 library(MCMCpack)
 library(mvtnorm)
 library(ellipse)
@@ -29,12 +37,12 @@ library(chron)
 library(mnormt)
 library(schoolmath)
 library(RColorBrewer)
+```
 
-#############################################
+## Parameter Setting
 
-working_path<- getwd();
-
-input_file_name <- "../example_testdata/testref.csv";
+```{r paramset}
+input_file_name <- "testref.csv";
 
 input_data_tab_delimited <- FALSE; #set to TRUE if the input data is tab-delimited
 
@@ -50,7 +58,7 @@ num_iter <- 20; #number of iterations, choose based on data size.
 
 num_cores <- detectCores() - 4; #number of cores for parallel processing. Ensure that detectCores() > 1 for parallel processing to work, else set num_cores to 1.
 
-z_true_labels_avl <- FALSE; #set this to TRUE if the true labels of cells are available, else set it to FALSE. If TRUE, ensure to populate 'z_true' with the true labels in 'BISCUIT_process_data.R'
+z_true_labels_avl <- TRUE; #set this to TRUE if the true labels of cells are available, else set it to FALSE. If TRUE, ensure to populate 'z_true' with the true labels in 'BISCUIT_process_data.R'
 
 num_cells_batch <- 1000; #set this to 1000 if input number of cells is in the 1000s, else set it to 100.
 
@@ -58,6 +66,14 @@ alpha <- 1; #DPMM dispersion parameter. A higher value spins more clusters where
 
 output_folder_name <- "output_testref"; #give a name for your output folder.
 
-## call BISCUIT
-source("BISCUIT_main.R")
+```
 
+## Call BISCUIT
+
+```{r truelabels}
+
+```
+
+```{r runBISCUIT}
+source("BISCUIT_main.R")
+```
